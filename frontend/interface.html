@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration</title>
+    <link rel="stylesheet" href="interface.css">
+</head>
+
+<body>
+    
+       
+        <div class="auth-container">
+            <div class="auth-header">
+                <h2>Welcome</h2>
+                <p>Please login or register to continue</p>
+            </div>
+
+            <div class="auth-tabs">
+                <div class="auth-tab active" onclick="switchTab('login')">Login</div>
+                <div class="auth-tab" onclick="switchTab('register')">Register</div>
+            </div>
+
+            <!-- Login Form -->
+            <form id="login-form" class="auth-form active">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" class="form-control" placeholder="Enter your email" required>
+                    <div id="login-email-error" class="error-message">Please enter a valid email</div>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <div class="password-container">
+                        <input type="password" id="login-password" class="form-control"
+                            placeholder="Enter your password" required>
+                        <span class="password-toggle" onclick="togglePassword('login-password')">👁️</span>
+                    </div>
+                    <div id="login-password-error" class="error-message">Password must be at least 6 characters</div>
+                </div>
+                <button type="button" class="btn" onclick="login()">Login</button>
+                <div class="form-footer">
+                    <a href="#" onclick="showForgotPassword()">Forgot password?</a>
+                </div>
+            </form>
+
+            <!-- Registration Form -->
+            <form id="register-form" class="auth-form">
+                <div class="form-group">
+                    <label for="register-name">Full Name</label>
+                    <input type="text" id="register-name" class="form-control" placeholder="Enter your full name"
+                        required>
+                    <div id="register-name-error" class="error-message">Please enter your name</div>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" class="form-control" placeholder="Enter your email"
+                        required>
+                    <div id="register-email-error" class="error-message">Please enter a valid email</div>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <div class="password-container">
+                        <input type="password" id="register-password" class="form-control"
+                            placeholder="Create a password" required>
+                        <span class="password-toggle" onclick="togglePassword('register-password')">👁️</span>
+                    </div>
+                    <div id="register-password-error" class="error-message">Password must be at least 6 characters</div>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm-password">Confirm Password</label>
+                    <div class="password-container">
+                        <input type="password" id="register-confirm-password" class="form-control"
+                            placeholder="Confirm your password" required>
+                        <span class="password-toggle" onclick="togglePassword('register-confirm-password')">👁️</span>
+                    </div>
+                    <div id="register-confirm-error" class="error-message">Passwords don't match</div>
+                </div>
+                <button type="button" class="btn" onclick="register()">Register</button>
+                <div class="form-footer">
+                    Already have an account? <a href="#" onclick="switchTab('login')">Login here</a>
+                </div>
+            </form>
+        </div>
+
+
+    <script src="interface.js"></script>
+</body>
+
+</html>

@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      // Each file belongs to a user
+      File.belongsTo(models.User, { foreignKey: 'UserId' });
     }
   }
   File.init({
@@ -19,6 +21,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'File',
+  },
+  {
+    timestamps: false,
   });
   return File;
 };

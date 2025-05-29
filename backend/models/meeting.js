@@ -20,6 +20,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Meeting',
+  },
+  {
+    timestamps: false,
   });
   return Meeting;
 };

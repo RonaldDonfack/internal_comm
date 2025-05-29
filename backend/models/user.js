@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      User.hasMany(models.Announcement, { foreignKey: 'UserId' });
+      User.hasMany(models.File, { foreignKey: 'UserId' });
+      User.hasMany(models.Message, { as: 'SentMessages', foreignKey: 'senderId' });
+      User.hasMany(models.Message, { as: 'ReceivedMessages', foreignKey: 'receiverId' });
+  
     }
   }
   User.init({
@@ -20,6 +25,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'User',
+  },
+  {
+    timestamps: false,
   });
   return User;
 };

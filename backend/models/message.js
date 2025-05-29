@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+        // Message was sent by a User
+      Message.belongsTo(models.User, { as: 'Sender', foreignKey: 'senderId' });
+      // Message was received by a User
+      Message.belongsTo(models.User, { as: 'Receiver', foreignKey: 'receiverId' });
+   
     }
   }
   Message.init({
@@ -18,6 +23,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Message',
+  },
+  {
+    timestamps: false,
   });
   return Message;
 };

@@ -24,7 +24,7 @@ app.use('/api/announcements', announcementRoutes);
   try {
     await db.authenticate();
     console.log('Database connected.');
-    await db.sync();
+    await db.sync({alter : true});
   } catch (err) {
     console.error('Database connection failed:', err);
   }

@@ -1,4 +1,4 @@
-const { Meeting } = require('../models/meeting');
+const { Meeting } = require('../models');
 
 exports.getAllMeetings = async (req, res) => {
   const meetings = await Meeting.findAll();

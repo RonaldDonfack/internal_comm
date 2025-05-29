@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      // 🔽 Each announcement belongs to a user
+      Announcement.belongsTo(models.User, { foreignKey: 'UserId' });
+   
     }
   }
   Announcement.init({
@@ -19,6 +22,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Announcement',
+  },
+  {
+    timestamps: false,
   });
   return Announcement;
 };
